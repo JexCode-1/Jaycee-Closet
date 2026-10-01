@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jaycee Closet | Streetwear & Fashion</title>
+
+  <meta
+    name="description"
+    content="Jaycee Closet — modern streetwear, everyday essentials and statement pieces."
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f3;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(245,245,243,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #ddd;
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #1746a2;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #1746a2;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 50px;
+      padding: 70px 7%;
+      background: #e9e9e5;
+    }
+
+    .hero-text small {
+      color: #1746a2;
+      font-weight: 800;
+      letter-spacing: 3px;
+      font-size: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 7vw, 90px);
+      line-height: 0.95;
+      letter-spacing: -5px;
+      margin: 18px 0 25px;
+      max-width: 700px;
+    }
+
+    .hero p {
+      max-width: 520px;
+      color: #555;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 24px;
+      background: #111;
+      color: white;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #1746a2;
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      height: 620px;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 40px;
+      gap: 20px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(35px, 5vw, 58px);
+      letter-spacing: -3px;
+    }
+
+    .section-heading p {
+      max-width: 400px;
+      color: #666;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product {
+      background: white;
+      overflow: hidden;
+    }
+
+    .product-image {
+      height: 430px;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .product:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .product-info p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .price {
+      margin-top: 12px;
+      font-weight: 800;
+      color: #1746a2;
+    }
+
+    /* COLLECTION */
+
+    .collection {
+      background: #111;
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .collection-image {
+      height: 550px;
+      overflow: hidden;
+    }
+
+    .collection-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .collection-text small {
+      color: #8fb1ff;
+      letter-spacing: 3px;
+      font-weight: 800;
+    }
+
+    .collection-text h2 {
+      font-size: clamp(42px, 6vw, 75px);
+      line-height: 0.95;
+      letter-spacing: -4px;
+      margin: 18px 0 25px;
+    }
+
+    .collection-text p {
+      color: #bbb;
+      max-width: 480px;
+      margin-bottom: 30px;
+    }
+
+    .collection .btn {
+      background: white;
+      color: #111;
+    }
+
+    .collection .btn:hover {
+      background: #1746a2;
+      color: white;
+    }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: clamp(40px, 5vw, 65px);
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    .about p {
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .about-image {
+      height: 520px;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* INSTAGRAM STYLE GRID */
+
+    .lookbook {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .lookbook div {
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .lookbook img {
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .lookbook div:hover img {
+      transform: scale(1.06);
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+      background: #dfe7f8;
+    }
+
+    .contact h2 {
+      font-size: clamp(42px, 6vw, 75px);
+      letter-spacing: -4px;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      color: #555;
+      max-width: 550px;
+      margin: 0 auto 30px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 35px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer p {
+      color: #999;
+      font-size: 13px;
+    }
+
+    footer strong {
+      font-size: 20px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      .collection,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero-image {
+        height: 500px;
+      }
+
+      .products {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .product-image {
+        height: 350px;
+      }
+
+      .collection-image {
+        height: 450px;
+      }
+
+      .lookbook {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 15px;
+      }
+    }
+
+    @media (max-width: 520px) {
+
+      section {
+        padding: 65px 5%;
+      }
+
+      .hero {
+        padding: 50px 5%;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .hero-image {
+        height: 430px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        height: 430px;
+      }
+
+      .collection-image {
+        height: 400px;
+      }
+
+      .about-image {
+        height: 400px;
+      }
+
+      .lookbook div {
+        height: 220px;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <a href="#" class="logo">
+      JAYCEE<span>.</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#shop">Shop</a>
+      <a href="#collection">Collection</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="hero-text">
+
+      <small>JAYCEE CLOSET / 2026</small>
+
+      <h1>
+        WEAR YOUR
+        ATTITUDE.
+      </h1>
+
+      <p>
+        Modern streetwear made for people who
+        aren't afraid to stand out. Clean pieces,
+        bold energy and everyday confidence.
+      </p>
+
+      <a href="#shop" class="btn">
+        Shop Collection →
+      </a>
+
+    </div>
+
+    <div class="hero-image">
+
+      <img
+        src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85"
+        alt="Fashion streetwear"
+      >
+
+    </div>
+
+  </header>
+
+
+  <!-- SHOP -->
+
+  <section id="shop">
+
+    <div class="section-heading">
+
+      <div>
+        <h2>New Arrivals</h2>
+      </div>
+
+      <p>
+        Everyday pieces designed to mix,
+        match and make your own.
+      </p>
+
+    </div>
+
+
+    <div class="products">
+
+      <article class="product">
+
+        <div class="product-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85"
+            alt="Streetwear clothing"
+          >
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Essential Oversized Tee</h3>
+
+          <p>Relaxed fit / Everyday essential</p>
+
+          <div class="price">₦18,000</div>
+
+        </div>
+
+      </article>
+
+
+      <article class="product">
+
+        <div class="product-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1551488831-005b5d0c5e0e?auto=format&fit=crop&w=900&q=85"
+            alt="Fashion clothing"
+          >
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Urban Layer Jacket</h3>
+
+          <p>Statement outerwear / Street fit</p>
+
+          <div class="price">₦45,000</div>
+
+        </div>
+
+      </article>
+
+
+      <article class="product">
+
+        <div class="product-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=900&q=85"
+            alt="Fashion model wearing streetwear"
+          >
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Everyday Street Fit</h3>
+
+          <p>Comfort / Style / Confidence</p>
+
+          <div class="price">₦35,000</div>
+
+        </div>
+
+      </article>
+
+
+      <article class="product">
+
+        <div class="product-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85"
+            alt="Casual fashion"
+          >
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Classic Oversized Shirt</h3>
+
+          <p>Clean silhouette / Unisex</p>
+
+          <div class="price">₦25,000</div>
+
+        </div>
+
+      </article>
+
+
+      <article class="product">
+
+        <div class="product-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=900&q=85"
+            alt="Street style fashion"
+          >
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>City Denim</h3>
+
+          <p>Relaxed denim / Everyday wear</p>
+
+          <div class="price">₦32,000</div>
+
+        </div>
+
+      </article>
+
+
+      <article class="product">
+
+        <div class="product-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85"
+            alt="Fashion collection"
+          >
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Signature Look</h3>
+
+          <p>Bold styling / Jaycee energy</p>
+
+          <div class="price">₦40,000</div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURED COLLECTION -->
+
+  <section class="collection" id="collection">
+
+    <div class="collection-image">
+
+      <img
+        src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1000&q=85"
+        alt="Jaycee streetwear collection"
+      >
+
+    </div>
+
+    <div class="collection-text">
+
+      <small>THE LATEST DROP</small>
+
+      <h2>
+        BUILT FOR
+        THE STREETS.
+      </h2>
+
+      <p>
+        Jaycee Closet combines relaxed silhouettes,
+        everyday comfort and confident street style.
+        Designed for your everyday movement.
+      </p>
+
+      <a href="#shop" class="btn">
+        Explore The Drop →
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+
+    <div>
+
+      <h2>
+        MORE THAN
+        CLOTHES.
+      </h2>
+
+      <p>
+        Jaycee Closet is a fashion concept built
+        around individuality, confidence and
+        effortless street style.
+      </p>
+
+      <p>
+        From oversized essentials to statement
+        pieces, every look is designed to help
+        you express yourself.
+      </p>
+
+      <a href="#contact" class="btn">
+        Get In Touch
+      </a>
+
+    </div>
+
+
+    <div class="about-image">
+
+      <img
+        src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=85"
+        alt="Fashion editorial"
+      >
+
+    </div>
+
+  </section>
+
+
+  <!-- LOOKBOOK -->
+
+  <section>
+
+    <div class="section-heading">
+
+      <h2>Lookbook</h2>
+
+      <p>
+        A visual moodboard for the Jaycee
+        Closet aesthetic.
+      </p>
+
+    </div>
+
+
+    <div class="lookbook">
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85"
+          alt="Fashion lookbook"
+        >
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=85"
+          alt="Fashion style"
+        >
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1506629905607-d9e7b0f3b8f4?auto=format&fit=crop&w=700&q=85"
+          alt="Street fashion"
+        >
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=700&q=85"
+          alt="Clothing collection"
+        >
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+
+    <h2>READY TO STAND OUT?</h2>
+
+    <p>
+      For orders, collaborations and enquiries,
+      contact Jaycee Closet.
+    </p>
+
+    <!-- Replace the number below with the real business WhatsApp number -->
+
+    <a
+      href="https://wa.me/2340000000000"
+      class="btn"
+      target="_blank"
+    >
+      Chat on WhatsApp →
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <strong>JAYCEE CLOSET.</strong>
+
+    <p>
+      © 2026 Jaycee Closet. Demo website created
+      by Jessica Web Studio.
+    </p>
+
+  </footer>
+
+</body>
+</html>
